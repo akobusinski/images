@@ -25,7 +25,7 @@ jobs:
 
     strategy:
       matrix:
-        include: ${{ fromJson(needs.gather_packages.outputs) }}
+        include: ${{ fromJson(needs.gather_packages.outputs.matrix) }}
 
     name: Build and publish the Docker image for ${{ matrix.job }}:${{ matrix.label }}
 
