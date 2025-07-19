@@ -14,10 +14,10 @@ jobs:
 
       - name: Generate matrix
         id: generate-matrix
-        run: cat gather_packages.sh | sh >> $GITHUB_OUTPUT
+        run: echo "matrix=$(cat gather_packages.sh | sh)" >> $GITHUB_OUTPUT
 
     outputs:
-      matrix: ${{ steps.generate-matrix.outputs }}
+      matrix: ${{ steps.generate-matrix.outputs.matrix }}
 
   publish:
     runs-on: ubuntu-latest
